@@ -1,11 +1,15 @@
 /* 
   Depth First Value 
+    - Binary Tree
+    - Stack
+    - Iterator
+    - Recursion
 */
 
 import { TreeNode, initializeTreeString } from "./tree";
 
 // Iteration
-export function depthFirstValueIterator<T>(root: TreeNode<T> | null): T[] {
+export function dfsTraversalIterator<T>(root: TreeNode<T> | null): T[] {
   
   if (!root) return [];
 
@@ -26,15 +30,15 @@ export function depthFirstValueIterator<T>(root: TreeNode<T> | null): T[] {
 }
 
 // Recursion
-export function depthFirstValueRecursion<T> (root: TreeNode<T> | null): T[] {
+export function dfsTraversalRecursion<T> (root: TreeNode<T> | null): T[] {
 
   // Base Case
   if (!root) return [];
 
   let leftValues: T[] = [];
   let rightValues: T[] = [];
-  if (root.left) leftValues = depthFirstValueRecursion(root.left);
-  if (root.right) rightValues = depthFirstValueRecursion(root.right);
+  if (root.left) leftValues = dfsTraversalRecursion(root.left);
+  if (root.right) rightValues = dfsTraversalRecursion(root.right);
 
   return [root.value, ...leftValues, ...rightValues];
 
@@ -42,8 +46,8 @@ export function depthFirstValueRecursion<T> (root: TreeNode<T> | null): T[] {
 
 const root = initializeTreeString();
 
-const resultDFSIterator = depthFirstValueIterator(root);
+const resultDFSIterator = dfsTraversalIterator(root);
 console.log('Result DFS Iterator: ' + resultDFSIterator);
 
-const resultDFSRecursion = depthFirstValueRecursion(root);
+const resultDFSRecursion = dfsTraversalRecursion(root);
 console.log('Result DFS Recursion: ' + resultDFSRecursion);
