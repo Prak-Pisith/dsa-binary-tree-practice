@@ -57,3 +57,25 @@ export function initializeTreeStringCustom(startChar: string, endChar: string): 
 // Usage
 // const tree = initializeTreeStringCustom('a', 'z');
 // console.log(tree);
+
+export function initializeTreeNumber (): TreeNode<number> {
+
+    // Initialize Nodes
+    const a = new TreeNode(5);
+    const b = new TreeNode(13);
+    const c = new TreeNode(7);
+    const d = new TreeNode(3);
+    const e = new TreeNode(12);
+    const f = new TreeNode(8);
+  
+    // Connect Nodes
+    a.left = b;
+    a.right = c;
+  
+    b.left = d;
+    b.right = e;
+  
+    c.right = f;
+  
+    return a;
+}
