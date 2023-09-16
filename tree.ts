@@ -34,3 +34,26 @@ export function initializeTreeString(): TreeNode<string> {
 
   return a;
 }
+
+export function initializeTreeStringCustom(startChar: string, endChar: string): TreeNode<string> {
+  function generateTree(start: string, end: string): TreeNode<string> | null {
+    if (start > end) {
+      return null;
+    }
+    
+    const mid = Math.floor((start.charCodeAt(0) + end.charCodeAt(0)) / 2);
+    const midChar = String.fromCharCode(mid);
+    const node = new TreeNode(midChar);
+    
+    node.left = generateTree(start, String.fromCharCode(mid - 1));
+    node.right = generateTree(String.fromCharCode(mid + 1), end);
+    
+    return node;
+  }
+
+  return generateTree(startChar, endChar) as TreeNode<string>;
+}
+
+// Usage
+// const tree = initializeTreeStringCustom('a', 'z');
+// console.log(tree);

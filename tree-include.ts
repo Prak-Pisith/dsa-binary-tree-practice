@@ -8,7 +8,7 @@
     - Stack 
 */
 
-import { TreeNode, initializeTreeString } from "./tree";
+import { TreeNode, initializeTreeString, initializeTreeStringCustom } from "./tree";
 
 // BFS - Iterator
 export function bfsTreeIncludes<T> (root: TreeNode<T> | null, target: T): boolean { 
@@ -60,8 +60,9 @@ export function dfsTreeIncludesRecursion<T> (root: TreeNode<T> | null, target: T
 }
 
 // Initialized Tree
-const root = initializeTreeString();
-const target: string = 'a';
+// const root = initializeTreeString();
+const root = initializeTreeStringCustom('a', 'z');
+const target: string = 's';
 
 // Time Log
 let start;
